@@ -1,0 +1,22 @@
+html {
+  box-sizing: border-box;
+}
+
+*, ::before, ::after {
+  box-sizing: inherit;
+}
+
+body {
+background-color: rgb(228, 194, 153);
+}
+
+.sketchArea {
+  display: grid;
+  /* grid-template-columns: repeat(6, 50px); */
+}
+.tile {
+  height: 50px;
+  width: 50px;
+  background-color: black;
+  border: 2px solid rgb(65, 134, 143);
+}
