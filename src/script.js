@@ -7,7 +7,12 @@ function randomRGB() {
 }
 
 function setGradient(target) {
-  
+  if (!target.style.filter) target.style.filter = 'brightness(0.9)';
+  let currentGradient = Number(target.style.filter.slice(11, 14));
+  if (currentGradient != 0) {
+    currentGradient -= 0.1;
+    target.style.filter = `brightness(${currentGradient})`;
+  } else return;
 }
 
 let brushMode = 'standard';
@@ -41,13 +46,15 @@ sketchTiles.forEach(tile => {
     if (mouseDown) {
       switch (brushMode) {
         case 'standard':
+          tile.style.filter = '';
           e.target.style.backgroundColor = brushColor.value;
           break;
         case 'rainbow':
+          tile.style.filter = '';
           e.target.style.backgroundColor = randomRGB();
           break;
         case 'gradient':
-
+          setGradient(e.target);
           break;
       }
     } 
@@ -58,12 +65,15 @@ sketchTiles.forEach(tile => {
   tile.addEventListener("mousedown", (e) => {
     switch (brushMode) {
       case 'standard':
+        tile.style.filter = '';
         e.target.style.backgroundColor = brushColor.value;
         break;
       case 'rainbow':
+        tile.style.filter = '';
         e.target.style.backgroundColor = randomRGB();
         break;
       case 'gradient':
+        setGradient(e.target);
         break;
   }});
 });
@@ -71,7 +81,9 @@ sketchTiles.forEach(tile => {
 const clearButton = document.querySelector('#clear-button')
 clearButton.addEventListener('click', () => {
   sketchTiles.forEach(tile => {
+    tile.style.filter = '';
     tile.style.backgroundColor = '#fff';
+    
   })
 });
 

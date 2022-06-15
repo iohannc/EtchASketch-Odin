@@ -37,7 +37,3 @@ background-color: rgb(228, 194, 153);
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(0, 0, 0);
 }
-
-.gradient {
-  filter: brightness(1);
-}
