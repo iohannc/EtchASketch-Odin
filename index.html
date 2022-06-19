@@ -10,6 +10,7 @@
   </head>
   <body ondragstart="return false;" ondrop="return false;">
     <div class="container">
+      <h1>Etch-a-Sketch!</h1>
       <div class="buttons-container">
         <div>
           <input
@@ -25,6 +26,25 @@
         <button id="clear-button">Clear</button>
       </div>
       <div class="sketchArea"></div>
+      <div class="slider-area">
+      <label for="sketch-pad-size">Grid size</label>
+      <input
+      type="range"
+      min="10"
+      max="30"
+      step="5" 
+      value="15"
+      list="tickmarks"
+      name="sketch-pad-size" 
+      id="sketch-pad-size">
+      <span></span>
+      </div>
+      <footer>
+        <a href="https://github.com/iohannc" target="_blank"
+          ><img src="./src/img/github.png" alt="GitHub Logo"
+        /></a>
+        <span>Made by Juan Negrete for The Odin Project curriculum.</span>
+      </footer>
     </div>
   </body>
 </html>
